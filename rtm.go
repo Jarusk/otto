@@ -42,7 +42,7 @@ func main() {
 			fmt.Printf("Error: %s\n", ev.Error())
 
 		case *slack.InvalidAuthEvent:
-			fmt.Printf("Invalid credentials")
+			fmt.Printf("Invalid credentials\n")
 			return
 
 		default:
