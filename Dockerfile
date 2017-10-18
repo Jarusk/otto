@@ -1,5 +1,7 @@
 FROM golang:1.9-alpine
 
+RUN apk add --no-cache git
+
 ADD . /go/src/app
 WORKDIR /go/src/app
 
