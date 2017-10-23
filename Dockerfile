@@ -1,12 +1,15 @@
-FROM golang:1.9-alpine
+FROM alpine:3.6
 
-RUN apk add --no-cache git
+RUN apk add --no-cache bash curl openssl-dev g++ python2 cmake git file make
 
-ADD . /go/src/app
-WORKDIR /go/src/app
+WORKDIR /code
 
+RUN git clone https://github.com/rust-lang/rust.git
 
-RUN go-wrapper download
-RUN go-wrapper install
+WORKDIR rust
 
-CMD ["go-wrapper", "run"] # ["app"]
+RUN git checkout tags/1.20.0
+
+#RUN ./x.py build
+
+#RUN ./x.py install
