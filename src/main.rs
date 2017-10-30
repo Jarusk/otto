@@ -14,12 +14,7 @@
 // limitations under the License.
 //
 //
-// This is a simple example of using slack-rs.
-// You can run it with 
-//
-// NOTE: This will post in the #general channel of the account you connect
-// to.
-//
+
 
 extern crate slack;
 use slack::{Event, RtmClient};
@@ -60,7 +55,7 @@ impl slack::EventHandler for MyHandler {
 fn main() {
     let args: Vec<String> = std::env::args().collect();
     let api_key = match args.len() {
-        0 | 1 => panic!("No api-key in args! Usage: cargo run --example slack_example -- <api-key>"),
+        0 | 1 => panic!("No api-key in args! Usage: cargo run <api-key>"),
         x => args[x - 1].clone(),
     };
     let mut handler = MyHandler;
