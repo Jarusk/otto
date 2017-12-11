@@ -33,7 +33,8 @@ impl slack::EventHandler for MyHandler {
 
     fn on_connect(&mut self, cli: &RtmClient) {
         println!("on_connect");
-        // find the general channel id from the 
+        
+        // Get the ID of the 'General' Channel
         let general_channel_id = cli.start_response()
             .channels
             .as_ref()
