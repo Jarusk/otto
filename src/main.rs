@@ -15,14 +15,13 @@
 //
 //
 
-
 extern crate slack;
 use slack::{Event, RtmClient};
 
-struct MyHandler;
+struct Handler;
 
 #[allow(unused_variables)]
-impl slack::EventHandler for MyHandler {
+impl slack::EventHandler for Handler {
     fn on_event(&mut self, cli: &RtmClient, event: Event) {
         println!("on_event(event: {:?})", event);
     }
@@ -59,7 +58,7 @@ fn main() {
         0 | 1 => panic!("No api-key in args! Usage: cargo run <api-key>"),
         x => args[x - 1].clone(),
     };
-    let mut handler = MyHandler;
+    let mut handler = Handler;
     let r = RtmClient::login_and_run(&api_key, &mut handler);
     match r {
         Ok(_) => {}
